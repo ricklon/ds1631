@@ -58,7 +58,7 @@ byte DS1631::getConfig()
   #else
     Wire.send(0xAC);
   #endif
-  Wire.endTransmission();
+  Wire.requestFrom(_addr, (uint8_t) 0x01); //The configuration is one byte get it
   while (Wire.available())
   {
     #if ARDUINO >= 100
