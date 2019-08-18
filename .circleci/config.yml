@@ -31,7 +31,7 @@ jobs:
       - run: pwd
       - run: cp -r ~/ds1631/examples/DS1631_OneDevice ~/workarea/
       - run: ./arduino-cli core update-index
-      - run: ./arduino-cli core install arduino:avr:uno 
+      - run: ./arduino-cli core install arduino:avr
       - run: ./arduino-cli lib install "WiFi101"
       - run: ls
       - run: ./arduino-cli compile --fqbn arduino:avr:uno  ./DS1631_OneDevice
