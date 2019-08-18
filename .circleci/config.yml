@@ -1,21 +1,30 @@
-## Customize the test machine
-machine:
+# Golang CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-go/ for more details
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version
+      - image: circleci/golang:1.9
 
-  timezone:
-    America/New_York # Set the timezone
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
 
-  # Add some environment variables
-  environment:
-    WORK_DIR: pwd
-    DISPLAY: :1.0
+    #### TEMPLATE_NOTE: go expects specific checkout path representing url
+    #### expecting it in the form of
+    ####   /go/src/github.com/circleci/go-tool
+    ####   /go/src/bitbucket.org/circleci/go-tool
+    working_directory: ~/workarea
+    steps:
+      - checkout
 
-## Customize dependencies
-dependencies:
-  pre:
-    - curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
-  override:
-
-## Customize test commands
-test:
-  override:
-    - arduino-cli compile --fqbn arduino:avr:uno  examples/DS1631_OneDevice
+      # specify any bash command here prefixed with `run: `
+      - run: sudo apt-get install curl
+      - run: ls
+      - run: curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
+      - run: cp -r ~/workarea/ds1631/examples/DS1631_OneDevice .
+      - run: arduino-cli compile --fqbn arduino:avr:uno  examples/DS1631_OneDevice
+      
+      
