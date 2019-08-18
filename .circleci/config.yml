@@ -30,6 +30,8 @@ jobs:
       - run: ls
       - run: pwd
       - run: cp -r ~/ds1631/examples/DS1631_OneDevice ~/workarea/
-      - run: ./arduino-cli compile --fqbn arduino:avr:uno  examples/DS1631_OneDevice
+      - run: ./arduino-cli core update-index
+      - run: ls
+      - run: ./arduino-cli compile --fqbn arduino:avr:uno  ./DS1631_OneDevice
       
       
