@@ -29,7 +29,7 @@ jobs:
       - run: tar xvzf arduino-cli_0.4.0_Linux_64bit.tar.gz
       - run: ls
       - run: pwd
-      - run: cp -r ~/workarea/ds1631/examples/DS1631_OneDevice ~/
-      - run: arduino-cli compile --fqbn arduino:avr:uno  examples/DS1631_OneDevice
+      - run: cp -r ~/ds1631/examples/DS1631_OneDevice ~/workarea/
+      - run: ./arduino-cli compile --fqbn arduino:avr:uno  examples/DS1631_OneDevice
       
       
