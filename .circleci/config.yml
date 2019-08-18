@@ -21,6 +21,7 @@ jobs:
       - checkout:
           path: ~/ds1631
       # specify any bash command here prefixed with `run: `
+      - run: pwd
       - run: sudo apt-get install curl
       - run: cd ~/
       - run: pwd
