@@ -68,7 +68,6 @@ byte DS1631::getConfig()
     #endif
   }
 
-  Wire.endTransmission();
   startConversion();
   return config;
 }
