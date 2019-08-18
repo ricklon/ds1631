@@ -1,0 +1,21 @@
+## Customize the test machine
+machine:
+
+  timezone:
+    America/New_York # Set the timezone
+
+  # Add some environment variables
+  environment:
+    WORK_DIR: pwd
+    DISPLAY: :1.0
+
+## Customize dependencies
+dependencies:
+  pre:
+    - curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
+  override:
+
+## Customize test commands
+test:
+  override:
+    - arduino-cli compile --fqbn arduino:avr:uno  examples/DS1631_OneDevice
