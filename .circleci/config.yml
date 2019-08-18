@@ -23,7 +23,7 @@ jobs:
       # specify any bash command here prefixed with `run: `
       - run: sudo apt-get install curl
       - run: cd ~/
-      - run: curl -O https://github.com/arduino/arduino-cli/releases/download/0.4.0/arduino-cli_0.4.0_Linux_64bit.tar.gz
+      - run: curl -O -J -L https://github.com/arduino/arduino-cli/releases/download/0.4.0/arduino-cli_0.4.0_Linux_64bit.tar.gz
       - run: tar xvzf arduino-cli_0.4.0_Linux_64bit.tar.gz
       - run: ls
       - run: cp -r ~/workarea/ds1631/examples/DS1631_OneDevice ~/
